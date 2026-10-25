@@ -1,0 +1,46 @@
+
+Stephane Steph <stephanepns@gmail.com>
+09:05 (il y a 30 minutes)
+À moi
+
+{
+ "nomBrasserie": "",
+ "description": "Bière artisanale",
+ "telephone": "+33781334467",
+ "dateExport": "2026-10-25T09:04:33.760059",
+ "bieres": [
+  {
+   "nom": "Blonde au Miel Kveik",
+   "style": "Blonde",
+   "format": "33cl",
+   "nombreBouteilles": 57,
+   "prix": 2.0,
+   "apogee": "tropJeune",
+   "apogeeLabel": "Encore 8j",
+   "joursDepuisEmbouteillage": 19,
+   "dluo": "2027-04-05T00:00:00.000"
+  },
+  {
+   "nom": "Ambrée des Étangs - Cacao (pétillante)",
+   "style": "Ambree",
+   "format": "33cl",
+   "nombreBouteilles": 45,
+   "prix": 2.5,
+   "apogee": "tropJeune",
+   "apogeeLabel": "Encore 12j",
+   "joursDepuisEmbouteillage": 15,
+   "dluo": "2027-04-09T00:00:00.000"
+  },
+  {
+   "nom": "Pale Ale houblonnée - Brasserie des Étangs",
+   "style": "Blonde",
+   "format": "33cl",
+   "nombreBouteilles": 44,
+   "prix": 2.0,
+   "apogee": "tropJeune",
+   "apogeeLabel": "Encore 23j",
+   "joursDepuisEmbouteillage": 4,
+   "dluo": "2027-04-20T00:00:00.000"
+  }
+ ]
+}

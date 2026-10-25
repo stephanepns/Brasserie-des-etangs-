@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Brasserie">
+  <meta name="theme-color" content="#1a1612">
+  <title>Brasserie - Stock</title>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a1612'/%3E%3Ctext x='50' y='65' font-size='50' text-anchor='middle' fill='%23c9a961'%3E%F0%9F%8D%BA%3C/text%3E%3C/svg%3E">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #1a1612;
+      --card: #23201c;
+      --card-hover: #2a2621;
+      --border: #3a352f;
+      --or: #c9a961;
+      --vert: #7ba828;
+      --cuivre: #b87333;
+      --rouge: #e57373;
+      --texte: #e8e2d5;
+      --muted: #8a8478;
+      --vert-optimal: #7ba828;
+      --orange: #e8a04e;
+      --gris: #6a655d;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--texte);
+      min-height: 100vh;
+      padding-bottom: 100px;
+      -webkit-font-smoothing: antialiased;
+    }
+    header {
+      padding: 32px 20px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--or);
+      margin-bottom: 4px;
+      letter-spacing: -0.5px;
+    }
+    .description {
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+    .filtres {
+      display: flex;
+      gap: 8px;
+      padding: 16px 20px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filtres::-webkit-scrollbar { display: none; }
+    .chip {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      color: var(--texte);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .chip.actif {
+      background: var(--or);
+      color: var(--bg);
+      border-color: var(--or);
+      font-weight: 700;
+    }
+    .liste {
+      padding: 0 16px;
+    }
+    .biere {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .biere:active { transform: scale(0.98); }
+    .biere-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 10px;
+    }
+    .biere-nom {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .badge {
+      flex-shrink: 0;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .badge-optimal { background: rgba(123,168,40,0.2); color: var(--vert-optimal); }
+    .badge-jeune { background: rgba(232,160,78,0.2); color: var(--orange); }
+    .badge-vite { background: rgba(232,160,78,0.25); color: var(--orange); }
+    .badge-passe { background: rgba(106,101,93,0.2); color: var(--gris); }
+    .biere-style {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .biere-infos {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .dispo {
+      font-size: 13px;
+      color: var(--texte);
+    }
+    .prix {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--vert-optimal);
+    }
+    .btn-commander {
+      margin-top: 12px;
+      width: 100%;
+      padding: 11px;
+      background: transparent;
+      border: 1.5px solid var(--or);
+      color: var(--or);
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-commander:active {
+      background: var(--or);
+      color: var(--bg);
+    }
+    .btn-commander.ajoute {
+      background: var(--or);
+      color: var(--bg);
+    }
+    /* Panier flottant */
+    .panier {
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+      background: var(--or);
+      color: var(--bg);
+      padding: 14px 18px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(201,169,97,0.35);
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 100;
+      font-weight: 700;
+    }
+    .panier.visible { display: flex; }
+    .panier-info { display: flex; align-items: center; gap: 10px; }
+    .panier-badge {
+      background: var(--bg);
+      color: var(--or);
+      width: 28px;
+      height: 28px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    /* Modal panier */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 200;
+      align-items: flex-end;
+      justify-content: center;
+    }
+    .modal-overlay.visible { display: flex; }
+    .modal {
+      background: var(--card);
+      width: 100%;
+      max-height: 85vh;
+      border-radius: 20px 20px 0 0;
+      padding: 24px 20px;
+      overflow-y: auto;
+      animation: slideUp 0.25s ease-out;
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); }
+      to { transform: translateY(0); }
+    }
+    .modal h2 {
+      font-size: 18px;
+      color: var(--or);
+      margin-bottom: 16px;
+    }
+    .panier-ligne {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
+    }
+    .panier-ligne:last-child { border-bottom: none; }
+    .panier-nom { flex: 1; font-size: 14px; }
+    .panier-qte {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-qte {
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      background: var(--border);
+      border: none;
+      color: var(--texte);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn-qte:active { background: var(--or); color: var(--bg); }
+    .qte-val { min-width: 20px; text-align: center; font-weight: 700; }
+    .total {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--or);
+      border-top: 2px solid var(--border);
+      margin-top: 8px;
+    }
+    .btn-envoyer {
+      width: 100%;
+      padding: 16px;
+      background: var(--vert-optimal);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-fermer {
+      width: 100%;
+      padding: 12px;
+      background: transparent;
+      color: var(--muted);
+      border: none;
+      font-size: 13px;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .vide {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--muted);
+    }
+    .vide-icone { font-size: 48px; margin-bottom: 12px; }
+    .erreur {
+      background: rgba(229,115,115,0.1);
+      border: 1px solid var(--rouge);
+      color: var(--rouge);
+      padding: 16px;
+      border-radius: 12px;
+      margin: 20px;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="nomBrasserie">Chargement...</h1>
+    <div class="description" id="description"></div>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <div class="filtres" id="filtres"></div>
+
+  <div class="liste" id="liste"></div>
+
+  <div class="panier" id="panier" onclick="ouvrirPanier()">
+    <div class="panier-info">
+      <div class="panier-badge" id="panierBadge">0</div>
+      <span>Voir le panier</span>
+    </div>
+    <span id="panierTotal">0.00 €</span>
+  </div>
+
+  <div class="modal-overlay" id="modal" onclick="fermerPanier(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <h2>Ma commande</h2>
+      <div id="panierContenu"></div>
+      <div class="total" id="panierTotalModal"></div>
+      <button class="btn-envoyer" onclick="envoyerWhatsApp()">
+        <span>💬</span> Envoyer via WhatsApp
+      </button>
+      <button class="btn-fermer" onclick="fermerPanier()">Fermer</button>
+    </div>
+  </div>
+
+  <script>
+    // État global
+    let data = null;
+    let filtreActif = 'Tous';
+    let panier = JSON.parse(localStorage.getItem('panier') || '{}');
+
+    // Chargement du JSON
+    async function charger() {
+      try {
+        const resp = await fetch('stock.json?t=' + Date.now());
+        if (!resp.ok) throw new Error('Fichier stock.json introuvable');
+        data = await resp.json();
+        afficher();
+      } catch (e) {
+        document.getElementById('liste').innerHTML =
+          '<div class="erreur">⚠️ Impossible de charger stock.json.<br>' +
+          'Vérifie que le fichier est bien déposé à côté de index.html.<br><br>' +
+          '<small>' + e.message + '</small></div>';
+        document.getElementById('nomBrasserie').textContent = 'Erreur';
+      }
+    }
+
+    // Affichage principal
+    function afficher() {
+      document.getElementById('nomBrasserie').textContent =
+        data.nomBrasserie || 'Ma Brasserie';
+      document.getElementById('description').textContent =
+        data.description || '';
+      const date = new Date(data.dateExport);
+      document.getElementById('meta').textContent =
+        'Mise à jour : ' + date.toLocaleDateString('fr-FR', {
+          day: '2-digit', month: 'long', hour: '2-digit', minute: '2-digit'
+        });
+
+      // Filtres par style
+      const styles = ['Tous', ...new Set(data.bieres.map(b => b.style))];
+      const filtresEl = document.getElementById('filtres');
+      filtresEl.innerHTML = styles.map(s =>
+        `<button class="chip ${s === filtreActif ? 'actif' : ''}"
+                 onclick="filtrer('${s.replace(/'/g, "\\'")}')">
+           ${s}
+         </button>`
+      ).join('');
+
+      // Liste des bières
+      const bieresFiltrees = filtreActif === 'Tous'
+        ? data.bieres
+        : data.bieres.filter(b => b.style === filtreActif);
+
+      const listeEl = document.getElementById('liste');
+      if (bieresFiltrees.length === 0) {
+        listeEl.innerHTML =
+          '<div class="vide"><div class="vide-icone">🍺</div>' +
+          'Aucune bière disponible dans cette catégorie.</div>';
+      } else {
+        listeEl.innerHTML = bieresFiltrees.map(b => carteBiere(b)).join('');
+      }
+      majPanier();
+    }
+
+    // Carte d'une bière
+    function carteBiere(b) {
+      const cle = cleBiere(b);
+      const qte = panier[cle] || 0;
+      const badgeClass = {
+        'optimal': 'badge-optimal',
+        'tropJeune': 'badge-jeune',
+        'bientotTropVieux': 'badge-vite',
+        'tropVieux': 'badge-passe'
+      }[b.apogee] || 'badge-jeune';
+
+      const prixAffiche = b.prix > 0
+        ? b.prix.toFixed(2) + ' €'
+        : 'Offert';
+
+      const boutonTexte = qte > 0
+        ? `✓ Ajouté (${qte})`
+        : '+ Ajouter au panier';
+      const boutonClass = qte > 0 ? 'ajoute' : '';
+
+      return `
+        <div class="biere">
+          <div class="biere-header">
+            <div class="biere-nom">${echapper(b.nom)}</div>
+            <span class="badge ${badgeClass}">${b.apogeeLabel}</span>
+          </div>
+          <div class="biere-style">${echapper(b.style)} · ${b.format}</div>
+          <div class="biere-infos">
+            <span class="dispo">${b.nombreBouteilles} bouteille${b.nombreBouteilles > 1 ? 's' : ''}</span>
+            <span class="prix">${prixAffiche}</span>
+          </div>
+          <button class="btn-commander ${boutonClass}"
+                  onclick="ajouterAuPanier('${cle.replace(/'/g, "\\'")}')">
+            ${boutonTexte}
+          </button>
+        </div>
+      `;
+    }
+
+    function cleBiere(b) {
+      return b.nom + '|' + b.format;
+    }
+
+    function echapper(s) {
+      return String(s).replace(/[<>&"]/g, c => ({
+        '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;'
+      }[c]));
+    }
+
+    function filtrer(style) {
+      filtreActif = style;
+      afficher();
+    }
+
+    // Panier
+    function ajouterAuPanier(cle) {
+      panier[cle] = (panier[cle] || 0) + 1;
+      sauverPanier();
+      afficher();
+    }
+
+    function retirerDuPanier(cle) {
+      if (!panier[cle]) return;
+      panier[cle]--;
+      if (panier[cle] <= 0) delete panier[cle];
+      sauverPanier();
+      afficher();
+      majPanierModal();
+    }
+
+    function sauverPanier() {
+      localStorage.setItem('panier', JSON.stringify(panier));
+    }
+
+    function majPanier() {
+      const totalItems = Object.values(panier).reduce((a, b) => a + b, 0);
+      const panierEl = document.getElementById('panier');
+      const badgeEl = document.getElementById('panierBadge');
+      const totalEl = document.getElementById('panierTotal');
+
+      if (totalItems === 0) {
+        panierEl.classList.remove('visible');
+        return;
+      }
+      panierEl.classList.add('visible');
+      badgeEl.textContent = totalItems;
+
+      // Calcul du total
+      let total = 0;
+      for (const [cle, qte] of Object.entries(panier)) {
+        const biere = trouverBiere(cle);
+        if (biere) total += biere.prix * qte;
+      }
+      totalEl.textContent = total.toFixed(2) + ' €';
+    }
+
+    function trouverBiere(cle) {
+      return data.bieres.find(b => cleBiere(b) === cle);
+    }
+
+    function ouvrirPanier() {
+      majPanierModal();
+      document.getElementById('modal').classList.add('visible');
+    }
+
+    function fermerPanier(e) {
+      if (e && e.target.id !== 'modal') return;
+      document.getElementById('modal').classList.remove('visible');
+    }
+
+    function majPanierModal() {
+      const contenu = document.getElementById('panierContenu');
+      const totalEl = document.getElementById('panierTotalModal');
+      const entries = Object.entries(panier);
+
+      if (entries.length === 0) {
+        contenu.innerHTML = '<div class="vide">Panier vide</div>';
+        totalEl.textContent = '';
+        return;
+      }
+
+      let total = 0;
+      contenu.innerHTML = entries.map(([cle, qte]) => {
+        const biere = trouverBiere(cle);
+        if (!biere) return '';
+        total += biere.prix * qte;
+        return `
+          <div class="panier-ligne">
+            <div class="panier-nom">
+              ${echapper(biere.nom)}<br>
+              <small style="color:var(--muted)">${biere.format}</small>
+            </div>
+            <div class="panier-qte">
+              <button class="btn-qte" onclick="retirerDuPanier('${cle.replace(/'/g, "\\'")}')">−</button>
+              <span class="qte-val">${qte}</span>
+              <button class="btn-qte" onclick="ajouterAuPanier('${cle.replace(/'/g, "\\'")}'); majPanierModal();">+</button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      totalEl.textContent = 'Total : ' + total.toFixed(2) + ' €';
+    }
+
+    // Envoi WhatsApp
+    function envoyerWhatsApp() {
+      const entries = Object.entries(panier);
+      if (entries.length === 0) {
+        alert('Ton panier est vide !');
+        return;
+      }
+
+      let total = 0;
+      let message = 'Bonjour ! Je voudrais commander :\n\n';
+      for (const [cle, qte] of entries) {
+        const biere = trouverBiere(cle);
+        if (!biere) continue;
+        total += biere.prix * qte;
+        message += `- ${qte}x ${biere.nom} (${biere.format}) `;
+        message += biere.prix > 0
+          ? `= ${(biere.prix * qte).toFixed(2)} €\n`
+          : '\n';
+      }
+      if (total > 0) {
+        message += `\nTotal : ${total.toFixed(2)} €`;
+      }
+      message += '\n\nMerci !';
+
+      const tel = (data.telephone || '').replace(/[^\d]/g, '');
+      const url = 'https://wa.me/' + tel + '?text=' + encodeURIComponent(message);
+      window.open(url, '_blank');
+    }
+
+    // Init
+    charger();
+  </script>
+</body>
+</html>
