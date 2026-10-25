@@ -342,13 +342,17 @@
     let panier = JSON.parse(localStorage.getItem('panier') || '{}');
 
     // Chargement du JSON
-    async function charger() {
-      try {
-        const resp = await fetch('stock.json?t=' + Date.now());
-        if (!resp.ok) throw new Error('Fichier stock.json introuvable');
-        data = await resp.json();
-        afficher();
-      } catch (e) {
+   async function charger() {
+  try {
+    const resp = await fetch('stock.json?t=' + Date.now());
+    if (!resp.ok) throw new Error('Fichier stock.json introuvable');
+    let texte = await resp.text();
+    // Nettoie : supprime tout avant le premier '{' (preuves de bug copier-coller)
+    const debut = texte.indexOf('{');
+    if (debut > 0) texte = texte.substring(debut);
+    data = JSON.parse(texte);
+    afficher();
+  } catch (e) {
         document.getElementById('liste').innerHTML =
           '<div class="erreur">⚠️ Impossible de charger stock.json.<br>' +
           'Vérifie que le fichier est bien déposé à côté de index.html.<br><br>' +
