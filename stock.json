@@ -2,7 +2,7 @@
  "nomBrasserie": "Brasserie des etangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-10-27T08:05:49.611030",
+ "dateExport": "2026-11-02T08:17:37.886930",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
@@ -11,8 +11,8 @@
    "nombreBouteilles": 57,
    "prix": 2.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 6j",
-   "joursDepuisEmbouteillage": 21,
+   "apogeeLabel": "Encore 0j",
+   "joursDepuisEmbouteillage": 27,
    "dluo": "2027-04-05T00:00:00.000"
   },
   {
@@ -22,8 +22,8 @@
    "nombreBouteilles": 45,
    "prix": 3.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 10j",
-   "joursDepuisEmbouteillage": 17,
+   "apogeeLabel": "Encore 4j",
+   "joursDepuisEmbouteillage": 23,
    "dluo": "2027-04-09T00:00:00.000"
   },
   {
@@ -33,9 +33,20 @@
    "nombreBouteilles": 44,
    "prix": 2.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 21j",
-   "joursDepuisEmbouteillage": 6,
+   "apogeeLabel": "Encore 15j",
+   "joursDepuisEmbouteillage": 12,
    "dluo": "2027-04-20T00:00:00.000"
+  },
+  {
+   "nom": "L'Éclat au zeste de citron",
+   "style": "Specialty IPA",
+   "format": "33cl",
+   "nombreBouteilles": 45,
+   "prix": 2.0,
+   "apogee": "tropJeune",
+   "apogeeLabel": "Encore 20j",
+   "joursDepuisEmbouteillage": 0,
+   "dluo": "2027-05-01T00:00:00.000"
   }
  ]
 }
