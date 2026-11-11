@@ -2,7 +2,7 @@
  "nomBrasserie": "Brasserie des etangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-11-02T08:17:37.886930",
+ "dateExport": "2026-11-11T11:11:13.080437",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
@@ -10,9 +10,11 @@
    "format": "33cl",
    "nombreBouteilles": 57,
    "prix": 2.0,
-   "apogee": "tropJeune",
-   "apogeeLabel": "Encore 0j",
-   "joursDepuisEmbouteillage": 27,
+   "apogee": "optimal",
+   "apogeeLabel": "Prete a boire",
+   "debutOptimal": "2026-11-02T10:21:15.986326",
+   "finOptimal": "2027-01-03T10:21:15.986326",
+   "joursDepuisEmbouteillage": 37,
    "dluo": "2027-04-05T00:00:00.000"
   },
   {
@@ -21,9 +23,11 @@
    "format": "33cl",
    "nombreBouteilles": 45,
    "prix": 3.0,
-   "apogee": "tropJeune",
-   "apogeeLabel": "Encore 4j",
-   "joursDepuisEmbouteillage": 23,
+   "apogee": "optimal",
+   "apogeeLabel": "Prete a boire",
+   "debutOptimal": "2026-11-06T11:55:11.544900",
+   "finOptimal": "2027-01-07T11:55:11.544900",
+   "joursDepuisEmbouteillage": 32,
    "dluo": "2027-04-09T00:00:00.000"
   },
   {
@@ -33,8 +37,10 @@
    "nombreBouteilles": 44,
    "prix": 2.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 15j",
-   "joursDepuisEmbouteillage": 12,
+   "apogeeLabel": "Encore 6j",
+   "debutOptimal": "2026-11-17T17:42:31.162660",
+   "finOptimal": "2027-01-18T17:42:31.162660",
+   "joursDepuisEmbouteillage": 21,
    "dluo": "2027-04-20T00:00:00.000"
   },
   {
@@ -44,9 +50,24 @@
    "nombreBouteilles": 45,
    "prix": 2.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 20j",
-   "joursDepuisEmbouteillage": 0,
+   "apogeeLabel": "Encore 11j",
+   "debutOptimal": "2026-11-22T18:26:23.975957",
+   "finOptimal": "2026-12-27T18:26:23.975957",
+   "joursDepuisEmbouteillage": 9,
    "dluo": "2027-05-01T00:00:00.000"
+  },
+  {
+   "nom": "L'Étang Cactus",
+   "style": "Blonde",
+   "format": "33cl",
+   "nombreBouteilles": 49,
+   "prix": 2.5,
+   "apogee": "tropJeune",
+   "apogeeLabel": "Encore 24j",
+   "debutOptimal": "2026-12-05T14:25:46.801444",
+   "finOptimal": "2027-02-05T14:25:46.801444",
+   "joursDepuisEmbouteillage": 3,
+   "dluo": "2027-05-07T00:00:00.000"
   }
  ]
 }
