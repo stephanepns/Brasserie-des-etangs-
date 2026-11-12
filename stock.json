@@ -2,7 +2,7 @@
  "nomBrasserie": "Brasserie des etangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-11-12T13:57:42.534257",
+ "dateExport": "2026-11-12T18:45:48.086430",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
@@ -37,10 +37,10 @@
    "nombreBouteilles": 44,
    "prix": 2.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 5j",
+   "apogeeLabel": "Encore 4j",
    "debutOptimal": "2026-11-17T17:42:31.162660",
    "finOptimal": "2027-01-18T17:42:31.162660",
-   "joursDepuisEmbouteillage": 22,
+   "joursDepuisEmbouteillage": 23,
    "dluo": "2027-04-20T00:00:00.000"
   },
   {
@@ -50,10 +50,10 @@
    "nombreBouteilles": 45,
    "prix": 2.0,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 10j",
+   "apogeeLabel": "Encore 9j",
    "debutOptimal": "2026-11-22T18:26:23.975957",
    "finOptimal": "2026-12-27T18:26:23.975957",
-   "joursDepuisEmbouteillage": 10,
+   "joursDepuisEmbouteillage": 11,
    "dluo": "2027-05-01T00:00:00.000"
   },
   {
@@ -63,10 +63,10 @@
    "nombreBouteilles": 49,
    "prix": 2.5,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 23j",
+   "apogeeLabel": "Encore 22j",
    "debutOptimal": "2026-12-05T14:25:46.801444",
    "finOptimal": "2027-02-05T14:25:46.801444",
-   "joursDepuisEmbouteillage": 4,
+   "joursDepuisEmbouteillage": 5,
    "dluo": "2027-05-07T00:00:00.000"
   }
  ]
