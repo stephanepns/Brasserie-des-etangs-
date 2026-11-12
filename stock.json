@@ -2,7 +2,7 @@
  "nomBrasserie": "Brasserie des etangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-11-12T08:54:01.989267",
+ "dateExport": "2026-11-12T13:57:42.534257",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
@@ -14,7 +14,7 @@
    "apogeeLabel": "Prete a boire",
    "debutOptimal": "2026-11-02T10:21:15.986326",
    "finOptimal": "2027-01-03T10:21:15.986326",
-   "joursDepuisEmbouteillage": 37,
+   "joursDepuisEmbouteillage": 38,
    "dluo": "2027-04-05T00:00:00.000"
   },
   {
@@ -27,7 +27,7 @@
    "apogeeLabel": "Prete a boire",
    "debutOptimal": "2026-11-06T11:55:11.544900",
    "finOptimal": "2027-01-07T11:55:11.544900",
-   "joursDepuisEmbouteillage": 33,
+   "joursDepuisEmbouteillage": 34,
    "dluo": "2027-04-09T00:00:00.000"
   },
   {
