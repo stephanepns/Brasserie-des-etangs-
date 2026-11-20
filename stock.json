@@ -2,7 +2,7 @@
  "nomBrasserie": "Brasserie des etangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-11-19T15:39:52.872302",
+ "dateExport": "2026-11-20T09:16:01.022441",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
@@ -12,8 +12,6 @@
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "debutOptimal": "2026-11-02T10:21:15.986326",
-   "finOptimal": "2027-01-03T10:21:15.986326",
    "joursDepuisEmbouteillage": 45,
    "dluo": "2027-04-05T00:00:00.000"
   },
@@ -25,8 +23,6 @@
    "prix": 3.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "debutOptimal": "2026-11-06T11:55:11.544900",
-   "finOptimal": "2027-01-07T11:55:11.544900",
    "joursDepuisEmbouteillage": 41,
    "dluo": "2027-04-09T00:00:00.000"
   },
@@ -38,9 +34,7 @@
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "debutOptimal": "2026-11-17T17:42:31.162660",
-   "finOptimal": "2027-01-18T17:42:31.162660",
-   "joursDepuisEmbouteillage": 29,
+   "joursDepuisEmbouteillage": 30,
    "dluo": "2027-04-20T00:00:00.000"
   },
   {
@@ -51,9 +45,7 @@
    "prix": 2.0,
    "apogee": "tropJeune",
    "apogeeLabel": "Encore 3j",
-   "debutOptimal": "2026-11-22T18:26:23.975957",
-   "finOptimal": "2026-12-27T18:26:23.975957",
-   "joursDepuisEmbouteillage": 17,
+   "joursDepuisEmbouteillage": 18,
    "dluo": "2027-05-01T00:00:00.000"
   },
   {
@@ -63,9 +55,7 @@
    "nombreBouteilles": 49,
    "prix": 2.5,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 15j",
-   "debutOptimal": "2026-12-05T14:25:46.801444",
-   "finOptimal": "2027-02-05T14:25:46.801444",
+   "apogeeLabel": "Encore 9j",
    "joursDepuisEmbouteillage": 12,
    "dluo": "2027-05-07T00:00:00.000"
   },
@@ -76,9 +66,7 @@
    "nombreBouteilles": 62,
    "prix": 2.5,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 89j",
-   "debutOptimal": "2027-02-17T15:31:06.549666",
-   "finOptimal": "2028-11-18T15:31:06.549666",
+   "apogeeLabel": "Encore 30j",
    "joursDepuisEmbouteillage": 0,
    "dluo": "2027-05-19T00:00:00.000"
   }
