@@ -1,29 +1,29 @@
 {
- "nomBrasserie": "Brasserie des etangs",
+ "nomBrasserie": "Brasserie des Étangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-11-20T09:36:58.357708",
+ "dateExport": "2026-11-25T09:13:11.781277",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
    "style": "Blonde",
    "format": "33cl",
-   "nombreBouteilles": 57,
+   "nombreBouteilles": 56,
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 45,
+   "joursDepuisEmbouteillage": 50,
    "dluo": "2027-04-05T00:00:00.000"
   },
   {
    "nom": "Ambrée des Étangs - Cacao (pétillante)",
    "style": "Ambree",
    "format": "33cl",
-   "nombreBouteilles": 45,
+   "nombreBouteilles": 44,
    "prix": 3.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 41,
+   "joursDepuisEmbouteillage": 46,
    "dluo": "2027-04-09T00:00:00.000"
   },
   {
@@ -34,7 +34,7 @@
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 30,
+   "joursDepuisEmbouteillage": 35,
    "dluo": "2027-04-20T00:00:00.000"
   },
   {
@@ -43,20 +43,20 @@
    "format": "33cl",
    "nombreBouteilles": 45,
    "prix": 2.0,
-   "apogee": "tropJeune",
-   "apogeeLabel": "Encore 3j",
-   "joursDepuisEmbouteillage": 18,
+   "apogee": "optimal",
+   "apogeeLabel": "Prete a boire",
+   "joursDepuisEmbouteillage": 23,
    "dluo": "2027-05-01T00:00:00.000"
   },
   {
    "nom": "L'Étang Cactus",
    "style": "Blonde",
    "format": "33cl",
-   "nombreBouteilles": 49,
+   "nombreBouteilles": 46,
    "prix": 2.5,
-   "apogee": "tropJeune",
-   "apogeeLabel": "Encore 2j",
-   "joursDepuisEmbouteillage": 12,
+   "apogee": "optimal",
+   "apogeeLabel": "Prete a boire",
+   "joursDepuisEmbouteillage": 17,
    "dluo": "2027-05-07T00:00:00.000"
   },
   {
@@ -66,8 +66,8 @@
    "nombreBouteilles": 62,
    "prix": 2.5,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 18j",
-   "joursDepuisEmbouteillage": 0,
+   "apogeeLabel": "Encore 13j",
+   "joursDepuisEmbouteillage": 5,
    "dluo": "2027-05-19T00:00:00.000"
   }
  ]
