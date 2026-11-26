@@ -2,7 +2,7 @@
  "nomBrasserie": "Brasserie des Étangs",
  "description": "Bière artisanale",
  "telephone": "+33781334467",
- "dateExport": "2026-11-25T09:13:11.781277",
+ "dateExport": "2026-11-26T07:50:37.658224",
  "bieres": [
   {
    "nom": "Blonde au Miel Kveik",
@@ -12,7 +12,7 @@
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 50,
+   "joursDepuisEmbouteillage": 51,
    "dluo": "2027-04-05T00:00:00.000"
   },
   {
@@ -23,7 +23,7 @@
    "prix": 3.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 46,
+   "joursDepuisEmbouteillage": 47,
    "dluo": "2027-04-09T00:00:00.000"
   },
   {
@@ -34,7 +34,7 @@
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 35,
+   "joursDepuisEmbouteillage": 36,
    "dluo": "2027-04-20T00:00:00.000"
   },
   {
@@ -45,7 +45,7 @@
    "prix": 2.0,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 23,
+   "joursDepuisEmbouteillage": 24,
    "dluo": "2027-05-01T00:00:00.000"
   },
   {
@@ -56,7 +56,7 @@
    "prix": 2.5,
    "apogee": "optimal",
    "apogeeLabel": "Prete a boire",
-   "joursDepuisEmbouteillage": 17,
+   "joursDepuisEmbouteillage": 18,
    "dluo": "2027-05-07T00:00:00.000"
   },
   {
@@ -66,8 +66,8 @@
    "nombreBouteilles": 62,
    "prix": 2.5,
    "apogee": "tropJeune",
-   "apogeeLabel": "Encore 13j",
-   "joursDepuisEmbouteillage": 5,
+   "apogeeLabel": "Encore 12j",
+   "joursDepuisEmbouteillage": 6,
    "dluo": "2027-05-19T00:00:00.000"
   }
  ]
